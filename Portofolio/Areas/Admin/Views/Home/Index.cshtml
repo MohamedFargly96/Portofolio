@@ -1,0 +1,100 @@
+﻿@model Portofolio.Models.Home_Cls
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إدارة البيانات</title>
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 32%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .save {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .edit {
+            background-color: #ffc107;
+        }
+
+        .delete {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>إدخال البيانات</h2>
+
+        <form method="post" action="/Employee/Save">
+
+            <!-- مهم جدا للـ Update و Delete -->
+            <input asp-for="Id" />
+
+            <label>الاسم</label>
+            <input type="text"  placeholder="ادخل الاسم" asp-for="Name" required>
+
+            <label>المسمى الوظيفي</label>
+            <input type="text" name="JobTitle" placeholder="ادخل المسمى الوظيفي" asp-for="JobTitle" required>
+
+            <label>الوصف</label>
+            <textarea name="Description" rows="4" placeholder="ادخل الوصف" asp-for="Description"></textarea>
+
+            <div class="buttons">
+                <button type="submit" formaction="/Home/Save" class="save">حفظ</button>
+             
+                <button type="submit" formaction="/Home/Delete" class="delete">حذف</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

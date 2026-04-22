@@ -49,7 +49,7 @@ namespace Portofolio.Areas.Admin.Controllers
 
         }
 
-        public IActionResult DeleteNew(int id)
+        public IActionResult Delete(int id)
         {
             var exist = _context.HomeDbset.Find(id);
             if (exist != null)

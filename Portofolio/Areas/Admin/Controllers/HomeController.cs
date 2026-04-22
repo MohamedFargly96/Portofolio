@@ -49,15 +49,6 @@ namespace Portofolio.Areas.Admin.Controllers
 
         }
 
-        public IActionResult Delete (int id)
-        {
-            var exist = _context.HomeDbset.Find(id);
-            if (exist != null)
-            {
-                _context.HomeDbset.Remove(exist);
-                _context.SaveChanges();
-            }
-            return RedirectToAction("Index");
-        }
+      
     }
 }

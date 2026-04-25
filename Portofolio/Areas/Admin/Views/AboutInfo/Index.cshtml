@@ -1,0 +1,95 @@
+﻿@model Portofolio.Models.About_Cls
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نبذة عني</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .save {
+            background-color: #28a745;
+            color: white;
+        }
+
+
+        .delete {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>نبذة عني</h2>
+
+        <form method="post">
+          
+            <!-- مهم لو في تعديل -->
+            <input  asp-for="Id" />
+
+            <label>اكتب نبذة عنك</label>
+            <textarea placeholder="اكتب نبذة عنك هنا..." asp-for="Description" required></textarea>
+
+            <div class="buttons">
+                <button type="submit" formaction="/Admin/AboutInfo/Save" class="save">حفظ</button>
+
+                <button type="submit" asp-area="Admin" asp-controller="AboutInfo" asp-action="Delete" class="delete">حذف</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

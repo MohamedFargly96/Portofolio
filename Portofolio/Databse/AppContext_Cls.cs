@@ -15,5 +15,7 @@ namespace Portofolio.Databse
         public DbSet<Home_Cls> HomeDbset { get; set; }
         //add about table 
         public DbSet<About_Cls> AboutDbset { get; set; }
+        //add projects table
+        public DbSet<Projects_Cls> ProjectsDbset { get; set; }
     }
 }

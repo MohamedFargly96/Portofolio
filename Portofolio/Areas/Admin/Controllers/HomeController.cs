@@ -5,7 +5,7 @@ using Portofolio.Models;
 
 namespace Portofolio.Areas.Admin.Controllers
 {
-   
+
     public class HomeController : Controller
     {
         private readonly AppContext_Cls _context;
@@ -30,7 +30,7 @@ namespace Portofolio.Areas.Admin.Controllers
         public IActionResult Save(Home_Cls model)
         {
             var exist = _context.HomeDbset.Find(model.Id);
-            if(exist != null)
+            if (exist != null)
             {
                 //edit
                 exist.Name = model.Name;
@@ -61,4 +61,5 @@ namespace Portofolio.Areas.Admin.Controllers
 
 
         }
+    }
 }

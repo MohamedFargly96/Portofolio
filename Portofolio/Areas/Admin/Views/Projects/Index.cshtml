@@ -1,0 +1,77 @@
+﻿@using Portofolio.Models
+@model List<Projects_Cls>;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2 style="margin-bottom:20px;">إضافة مشروع جديد</h2>
+
+<form method="post" enctype="multipart/form-data" asp-action="Create">
+
+    <div class="form-group">
+        <label>اسم المشروع</label>
+        <input type="text" name="ProjectName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>وصف المشروع</label>
+        <textarea name="Description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>لغة البرمجة</label>
+        <input type="text" name="ProgrammingLanguage" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>التصنيف</label>
+        <select name="Category" class="form-control">
+            <option value="">-- اختر التصنيف --</option>
+            <option value="Web">Web</option>
+            <option value="Desktop">Desktop</option>
+            <option value="Mobile">Mobile</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>صورة المشروع</label>
+        <input type="file" name="ImagePath" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">💾 حفظ</button>
+
+</form>
+
+<hr />
+
+<h3>المشاريع الحالية</h3>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>الصورة</th>
+            <th>اسم المشروع</th>
+            <th>الوصف</th>
+            <th>لغة البرمجة</th>
+            <th>التصنيف</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* البيانات هتتربط هنا بعدين *@
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.ImagePath" width="80" height="80" />
+                    </td>
+                    <td>@item.ProjectName</td>
+                    <td>@item.Description</td>
+                    <td>@item.ProgrammingLanguage</td>
+                    <td>@item.Category</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

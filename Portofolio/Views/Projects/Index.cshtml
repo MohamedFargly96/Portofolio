@@ -1,4 +1,4 @@
-﻿
+﻿@model  List<Projects_Cls>
 
 <section class="projects-section text-white py-5">
     <div class="container">
@@ -9,69 +9,23 @@
 
         <div class="row g-4">
             <!-- مشروع 1 -->
-            <div class="col-md-4">
-                <div class="card bg-dark text-white h-100 shadow-sm">
-                    <img src="~/images/Solid-principles.png" class="card-img-top project-img" alt="S.O.L.I.D Principles">
-                    <div class="card-body">
-                        <h5 class="card-title">S.O.L.I.D Principles</h5>
-                        <p class="card-text">A video explaining the 5 SOLID principles in object-oriented design.</p>
-                        <span class="badge bg-warning text-dark">C#</span>
-                        <span class="badge bg-secondary">OOP</span>
+            @foreach(var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white h-100 shadow-sm">
+                        <img src="@item.ImagePath" class="card-img-top project-img" alt="S.O.L.I.D Principles">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProjectName</h5>
+                            <p class="card-text">@item.Description</p>
+                            <span class="badge bg-warning text-dark">@item.ProgrammingLanguage</span>
+                            <span class="badge bg-secondary">@item.Category</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
 
-            <!-- مشروع 2 -->
-            <div class="col-md-4">
-                <div class="card bg-dark text-white h-100 shadow-sm">
-                    <img src="~/images/maui.png" class="card-img-top project-img" alt=".NET MAUI Course">
-                    <div class="card-body">
-                        <h5 class="card-title">.NET MAUI Course</h5>
-                        <p class="card-text">A full course on building cross-platform apps using .NET MAUI.</p>
-                        <span class="badge bg-warning text-dark">MAUI</span>
-                        <span class="badge bg-secondary">Mobile</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- مشروع 3 -->
-            <div class="col-md-4">
-                <div class="card bg-dark text-white h-100 shadow-sm">
-                    <img src="~/images/aspnet-core.png" class="card-img-top project-img" alt="ASP.NET Web API">
-                    <div class="card-body">
-                        <h5 class="card-title">ASP.NET Web API</h5>
-                        <p class="card-text">Tutorial on building RESTful APIs using ASP.NET Core.</p>
-                        <span class="badge bg-warning text-dark">Web API</span>
-                        <span class="badge bg-secondary">Backend</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- مشروع 4 -->
-            <div class="col-md-4">
-                <div class="card bg-dark text-white h-100 shadow-sm">
-                    <img src="~/images/C.jpg" class="card-img-top project-img" alt=".NET MAUI Course">
-                    <div class="card-body">
-                        <h5 class="card-title">.ًC# Course</h5>
-                        <p class="card-text">A full course on building Windows apps using .NET C#.</p>
-                        <span class="badge bg-warning text-dark">Desktop</span>
-                        <span class="badge bg-secondary">C#</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card bg-dark text-white h-100 shadow-sm">
-                    <img src="~/images/C.jpg" class="card-img-top project-img" alt=".NET MAUI Course">
-                    <div class="card-body">
-                        <h5 class="card-title">.ًC# Course</h5>
-                        <p class="card-text">Test Add new project </p>
-                        <span class="badge bg-warning text-dark">Desktop</span>
-                        <span class="badge bg-secondary">C#</span>
-                    </div>
-                </div>
-            </div>
-
+            
+          
         </div>
     </div>
 </section>

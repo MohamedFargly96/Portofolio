@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portofolio.Databse;
 
@@ -10,9 +11,11 @@ using Portofolio.Databse;
 namespace Portofolio.Migrations
 {
     [DbContext(typeof(AppContext_Cls))]
-    partial class AppContext_ClsModelSnapshot : ModelSnapshot
+    [Migration("20260503135023_AddProjectTable")]
+    partial class AddProjectTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
